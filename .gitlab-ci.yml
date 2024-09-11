@@ -7,8 +7,8 @@ variables:
   DOCKER_DRIVER: overlay2
   IMAGE_TAG: "$CI_REGISTRY_IMAGE:latest"
   KUBE_URL: "https://10.10.10.10:6443" 
-  KUBE_NAMESPACE: "dev-rental" 
-  DEPLOYMENT_NAME: "my-app-deployment" 
+  KUBE_NAMESPACE: "dev-cloudrift" 
+  DEPLOYMENT_NAME: "dev-cloudrift" 
 
 stages:
   - build
@@ -19,7 +19,7 @@ build:
   # tags:
   #   - home
   script:
-    - docker build -t my-app .
+    - docker build -t dev-cloudrift .
     - docker tag my-app:latest $IMAGE_TAG
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker push $IMAGE_TAG
@@ -40,25 +40,4 @@ deploy:
   only:
     - master
 
-
-
-# image: docker:20.10.8 # Use a Docker image with Docker installed
-
-# services:
-#   - docker:dind # Docker-in-Docker service
-
-# variables:
-#   DOCKER_DRIVER: overlay2
-#   IMAGE_TAG: "$CI_REGISTRY_IMAGE:latest"
-
-# stages:
-#   - build
-
-# build:
-#   stage: build
-#   script:
-#     - docker build -t my-app .
-#     - docker tag my-app:latest $IMAGE_TAG
-#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-#     - docker push $IMAGE_TAG
 
