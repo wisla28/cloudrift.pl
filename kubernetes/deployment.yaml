@@ -1,0 +1,21 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: cloudrift-deployment
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: cloudrift
+    template:
+      metadata:
+        labels:
+          app: cloudrift
+      spec:
+        containers:
+        - name: cloudrift
+          image: registry.gitlab.com/k3s9665410/base-images:latest
+          ports:
+          - containerPort: 3000
+        imagePullSecrets:
+        - name: gitlab-registry-secret

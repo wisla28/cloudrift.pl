@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+.env
+/public/images/
+/public/dist
+/node_modules
