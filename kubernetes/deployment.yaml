@@ -19,3 +19,4 @@
           - containerPort: 3100
         imagePullSecrets:
         - name: gitlab-registry-secret
+ 
