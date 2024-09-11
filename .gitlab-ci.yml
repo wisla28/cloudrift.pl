@@ -20,7 +20,7 @@ build:
   #   - home
   script:
     - docker build -t dev-cloudrift .
-    - docker tag my-app:latest $IMAGE_TAG
+    - docker tag dev-cloudrift:latest $IMAGE_TAG
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker push $IMAGE_TAG
 
