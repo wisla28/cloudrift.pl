@@ -2,5 +2,4 @@
 * text=auto
 .env
 /public/images/
-/public/dist
 /node_modules

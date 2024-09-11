@@ -10,7 +10,7 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install --production
 
-RUN npm run build:css
+#RUN npm run build:css
 
 # Copy the rest of the application code
 COPY . .
