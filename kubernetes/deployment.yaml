@@ -14,7 +14,7 @@
       spec:
         containers:
         - name: cloudrift
-          image: registry.gitlab.com/k3s9665410/base-images:latest
+          image: registry.gitlab.com/projectcloudrift/cloudrift:lastest
           ports:
           - containerPort: 3100
         imagePullSecrets:
