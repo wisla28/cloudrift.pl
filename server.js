@@ -1,19 +1,21 @@
-// Importowanie express
 const express = require('express');
 const path = require('path');
-
-// Tworzenie aplikacji express
 const app = express();
 
-// Konfiguracja statycznych plików (HTML, CSS)
+// Ustawienie EJS jako silnika widoków
+app.set('view engine', 'ejs');
+
+// Udostępnianie statycznych plików
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serwowanie strony startowej
+// Główna strona (index)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.render('pages/index.ejs', {
+        title: 'Strona Startowa'
+    });
 });
 
-// Ustawienie portu, na którym aplikacja będzie działać
+// Nasłuch na porcie 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Serwer działa na porcie ${PORT}`);
