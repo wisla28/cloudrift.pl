@@ -4,9 +4,9 @@ metadata:
   name: cloudrift-service
 spec:
   selector:
-    app: dev-cloudrift
+    app: cloudrift
   ports:
     - protocol: TCP
-      port: 3000
+      port: 3100
       targetPort: 3000
   type: LoadBalancer
