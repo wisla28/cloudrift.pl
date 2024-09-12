@@ -1,7 +1,7 @@
   apiVersion: apps/v1
   kind: Deployment
   metadata:
-    name: cloudrift-deployment
+    name: cloudrift
   spec:
     replicas: 1
     selector:

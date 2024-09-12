@@ -8,7 +8,7 @@ variables:
   IMAGE_TAG: "$CI_REGISTRY_IMAGE:latest"
   KUBE_URL: "https://10.10.10.10:6443" 
   KUBE_NAMESPACE: "dev-cloudrift" 
-  DEPLOYMENT_NAME: "cloudrift-deployment" 
+  DEPLOYMENT_NAME: "cloudrift" 
 
 stages:
   - build
