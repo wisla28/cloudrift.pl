@@ -16,7 +16,7 @@
         - name: cloudrift
           image: registry.gitlab.com/projectcloudrift/cloudrift:latest
           ports:
-          - containerPort: 3100
+          - containerPort: 3000
         imagePullSecrets:
         - name: gitlab-registry-secret
  
