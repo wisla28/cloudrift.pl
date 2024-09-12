@@ -8,12 +8,15 @@ app.set('view engine', 'ejs');
 // Udostępnianie statycznych plików
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/', require('./server/routes/index'))
+
 // Główna strona (index)
-app.get('/', (req, res) => {
-    res.render('pages/index.ejs', {
-        title: 'Strona Startowa'
-    });
-});
+// app.get('/', (req, res) => {
+//     res.render('pages/index.ejs', {
+//         title: 'Strona Startowa'
+//     });
+// });
 
 // Nasłuch na porcie 3000
 const PORT = process.env.PORT || 3000;

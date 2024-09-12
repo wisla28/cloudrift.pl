@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "postcss public/styles.css -o public/dist/styles.css"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,3 +21,4 @@
     "postcss-cli": "^11.0.0"
   }
 }
+ 
