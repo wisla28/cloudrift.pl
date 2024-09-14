@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tailwindcss -i views/styles.css -o public/dist/styles.css",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
@@ -19,6 +20,6 @@
     "ejs": "^3.1.10",
     "express": "^4.20.0",
     "postcss-cli": "^11.0.0"
-  }
+  } 
 }
  
