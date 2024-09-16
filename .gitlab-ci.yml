@@ -28,6 +28,7 @@ build:
 deploy:
   stage: deploy
   image: alpine:latest
+    # Użyj runnera działącego na klastrze
   tags:
     - home  
   script:
@@ -37,10 +38,5 @@ deploy:
     # Tworzymy plik kubeconfig
     - echo "$KUBECONFIG_DATA" > /builds/$CI_PROJECT_NAME/kubeconfig
     - export KUBECONFIG=/builds/$CI_PROJECT_NAME/kubeconfig
-
-    # Weryfikacja konfiguracji (opcjonalnie)
-    - kubectl config view
-    - kubectl get nodes
-
-    # Restart wybranej aplikacji w Kubernetesie
+    # Restart aplikacji w Kubernetesie
     - kubectl rollout restart deployment/$DEPLOYMENT_NAME -n $KUBE_NAMESPACE
