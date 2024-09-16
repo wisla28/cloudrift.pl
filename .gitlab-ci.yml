@@ -23,7 +23,7 @@ build:
     - docker tag dev-cloudrift:latest $IMAGE_TAG
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker push $IMAGE_TAG
-
+  
 
 deploy:
   stage: deploy
@@ -43,4 +43,4 @@ deploy:
     - kubectl get nodes
 
     # Restart wybranej aplikacji w Kubernetesie
-    - kubectl rollout restart deployment/$DEPLOYMENT_NAME
+    - kubectl rollout restart $DEPLOYMENT_NAME -n $KUBE_NAMESPACE
