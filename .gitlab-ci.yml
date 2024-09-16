@@ -32,8 +32,15 @@ deploy:
     - home  
   script:
     - apk add --no-cache kubectl
+    # Tworzymy katalog, jeśli nie istnieje
+    - mkdir -p /builds/$CI_PROJECT_NAME
+    # Tworzymy plik kubeconfig
     - echo "$KUBECONFIG_DATA" > /builds/$CI_PROJECT_NAME/kubeconfig
     - export KUBECONFIG=/builds/$CI_PROJECT_NAME/kubeconfig
+
+    # Weryfikacja konfiguracji (opcjonalnie)
+    - kubectl config view
+    - kubectl get nodes
+
+    # Restart wybranej aplikacji w Kubernetesie
     - kubectl rollout restart deployment/$DEPLOYMENT_NAME
-
-
