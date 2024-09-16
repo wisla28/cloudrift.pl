@@ -32,14 +32,8 @@ deploy:
     - home  
 script:
     - apk add --no-cache kubectl
-    - kubectl config set-cluster my-cluster --server=$KUBE_URL --insecure-skip-tls-verify=true
-    - kubectl config set-credentials deployer --token=$KUBE_TOKEN
-    - kubectl config set-context default --cluster=my-cluster --user=deployer --namespace=$KUBE_NAMESPACE
-    - kubectl config use-context default
-    - kubectl config view # Debugging info
-    - kubectl get deployments -n $KUBE_NAMESPACE # Debugging info
+    - echo "$KUBECONFIG_DATA" > /builds/$CI_PROJECT_NAME/kubeconfig
+    - export KUBECONFIG=/builds/$CI_PROJECT_NAME/kubeconfig
     - kubectl rollout restart deployment/$DEPLOYMENT_NAME
-
-
 
 
