@@ -43,4 +43,4 @@ deploy:
     - kubectl get nodes
 
     # Restart wybranej aplikacji w Kubernetesie
-    - kubectl rollout restart $DEPLOYMENT_NAME -n $KUBE_NAMESPACE
+    - kubectl rollout restart deployment/$DEPLOYMENT_NAME -n $KUBE_NAMESPACE
