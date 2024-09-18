@@ -29,13 +29,13 @@ build:
 deploy:
   stage: deploy
   image: alpine:latest
-    # Użyj runnera działącego na klastrze 
+    # Użyj runnera działącego na klast rze  
   tags:
     - home  
   script:
     - apk add --no-cache kubectl
     # Tworzymy katalog, jeśli nie istnieje
-    - mkdir -p /builds/$CI_PROJECT_NAME
+    - mkdir -p /builds/$CI_PROJECT_NAME 
     # Tworzymy plik kubeconfig
     - echo "$KUBECONFIG_DATA" > /builds/$CI_PROJECT_NAME/kubeconfig
     - export KUBECONFIG=/builds/$CI_PROJECT_NAME/kubeconfig
