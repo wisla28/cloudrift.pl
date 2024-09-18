@@ -1,8 +1,5 @@
 image: docker:20.10.8
 
-# services:
-#   - docker:dind
-
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://docker:2375
@@ -18,6 +15,9 @@ stages:
 
 build:
   stage: build
+  image: docker:latest
+  services:
+    - docker:dind
   tags:
     - home
   script:
