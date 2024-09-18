@@ -16,8 +16,8 @@ stages:
 
 build:
   stage: build
-  # tags:
-  #   - home
+  tags:
+    - home
   script:
     - docker build -t dev-cloudrift .
     - docker tag dev-cloudrift:latest $IMAGE_TAG
