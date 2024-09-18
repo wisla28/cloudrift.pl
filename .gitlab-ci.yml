@@ -1,7 +1,7 @@
 image: docker:20.10.8
 
-services:
-  - docker:dind
+# services:
+#   - docker:dind
 
 variables:
   DOCKER_DRIVER: overlay2
