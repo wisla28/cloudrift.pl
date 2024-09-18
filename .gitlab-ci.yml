@@ -41,3 +41,4 @@ deploy:
     - export KUBECONFIG=/builds/$CI_PROJECT_NAME/kubeconfig
     # Restart aplikacji w Kubernetesie
     - kubectl rollout restart deployment/$DEPLOYMENT_NAME -n $KUBE_NAMESPACE
+ 
