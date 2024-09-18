@@ -11,6 +11,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./server/routes/index'))
 
+app.use('/services', require('./server/routes/index'))
+
+
 // Główna strona (index)
 // app.get('/', (req, res) => {
 //     res.render('pages/index.ejs', {
