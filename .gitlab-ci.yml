@@ -39,6 +39,9 @@ deploy:
     # Tworzymy plik kubeconfig
     - echo "$KUBECONFIG_DATA" > /builds/$CI_PROJECT_NAME/kubeconfig
     - export KUBECONFIG=/builds/$CI_PROJECT_NAME/kubeconfig
+    - kubectl apply -f /kuberentes/deplyment.yaml
+    - kubectl apply -f /kuberentes/service.yaml
+
     # Restart aplikacji w Kubernetesie
-    - kubectl rollout restart deployment/$DEPLOYMENT_NAME -n $KUBE_NAMESPACE
+    # - kubectl rollout restart deployment/$DEPLOYMENT_NAME -n $KUBE_NAMESPACE
  
