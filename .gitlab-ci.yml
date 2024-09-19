@@ -12,7 +12,7 @@ variables:
   DEPLOYMENT_NAME: "cloudrift" 
 
 before_script:
-  - apk add --no-cache git docker
+  - apk add --no-cache git
 
 stages:
   - build
