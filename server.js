@@ -1,6 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 const app = express();
+const messageRoutes = require('./server/routes/api/messageRoutes'); // Import routera
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+require('./server/db')(app)
 
 // Ustawienie EJS jako silnika widoków
 app.set('view engine', 'ejs');
@@ -10,8 +20,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', require('./server/routes/index'))
-
 app.use('/services', require('./server/routes/index'))
+app.use('/api', messageRoutes);  // Dodaj /api prefix do ścieżki
 
 
 // Główna strona (index)
