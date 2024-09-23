@@ -12,7 +12,7 @@ document.querySelector('form').addEventListener('submit', async function (event)
 
     try {
         // Wysyłamy dane formularza na backend
-        const response = await fetch('https://cloudrift/api/send-message', {
+        const response = await fetch('https://cloudrift.pl/api/send-message', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
