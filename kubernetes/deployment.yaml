@@ -17,10 +17,5 @@ spec:
         image: registry.gitlab.com/projectcloudrift/cloudrift:latest
         ports:
         - containerPort: 3000
-        # Adding security context to comply with OpenShift permissions
-        securityContext:
-          allowPrivilegeEscalation: false
-          runAsNonRoot: true
-          runAsUser: 1000  # Specify a non-root user
       imagePullSecrets:
       - name: gitlab-registry-secret
