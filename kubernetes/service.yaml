@@ -8,6 +8,6 @@ spec:
     kind: Service
     name: cloudrift-service
   port:
-    targetPort: 3000
+    targetPort: 3000 
   tls:
     termination: edge
