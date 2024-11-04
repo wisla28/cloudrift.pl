@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloudrift | Przyszłość Twojej Chmury w Zasięgu Ręki</title>
-    <!-- <link href="/dist/styles.css" rel="stylesheet"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
@@ -16,7 +15,7 @@
 </head>
 <body class="bg-gray-100">
     <!-- Navbar -->
-    <nav class="shadow-lg">
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-gray-800 text-white shadow-lg transition-transform duration-300 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -27,50 +26,86 @@
                 </div>
                 
                 <!-- Hamburger button for small screens -->
-                <button class="md:hidden p-2 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200" type="button" aria-label="Toggle navigation" id="hamburgerButton">
+                <button class="md:hidden p-2 text-gray-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-200" type="button" aria-label="Toggle navigation" id="hamburgerButton">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </button>
 
                 <!-- Navigation menu -->
-                <div class="hidden md:flex flex-col md:flex-row md:space-x-4 md:items-center" id="navbarNav">
+                <div class="hidden md:flex flex-col md:flex-row md:space-x-4 md:items-center">
                     <ul class="flex flex-col md:flex-row md:space-x-4">
-                        <li class="nav-item mx-2">
-                            <a class="block text-gray-700 hover:text-blue-600 text-center py-2 px-4" href="/">Strona główna</a>
-                        </li>
+                        <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/">Strona główna</a></li>
+                        <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#contact">Kontakt</a></li>
+                        <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#services">Usługi</a></li>
+                    </ul>
+                </div>
+            </div>
 
-                        <li class="nav-item mx-2">
-                            <a class="block text-gray-700 hover:text-blue-600 text-center py-2 px-4" href="/#contact">Kontakt</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="block text-gray-700 hover:text-blue-600 text-center py-2 px-4" href="/#services">Usługi</a>
-                        </li>
-                    </ul>
-                </div>
- 
-                <!-- Mobile Menu -->
-                <div class="absolute top-16 left-0 w-full bg-gray-100 shadow-lg md:hidden hidden" id="mobileMenu">
-                    <ul class="flex flex-col space-y-2 p-4">
-                        <li class="nav-item">
-                            <a class="block text-gray-700 hover:text-blue-600 text-center py-2 px-4" href="/">Strona główna</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="block text-gray-700 hover:text-blue-600 text-center py-2 px-4" href="/#contact">Kontakt</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="block text-gray-700 hover:text-blue-600 text-center py-2 px-4" href="/#services">Usługi</a>
-                        </li>
-                    </ul>
-                </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="absolute top-16 left-0 w-full bg-gray-800 text-white shadow-lg md:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out">
+                <ul class="flex flex-col space-y-2 p-4">
+                    <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/">Strona główna</a></li>
+                    <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#contact">Kontakt</a></li>
+                    <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#services">Usługi</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <script>
-        document.getElementById('hamburgerButton').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    <!-- Main content with padding-top to start after navbar -->
 
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburgerButton = document.getElementById("hamburgerButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const navbar = document.getElementById("navbar");
+    let lastScrollY = window.scrollY;
+
+    // Funkcja otwierająca/zamykająca menu
+    hamburgerButton.addEventListener("click", function(event) {
+        if (mobileMenu.classList.contains("max-h-0")) {
+            mobileMenu.classList.remove("max-h-0", "opacity-0");
+            mobileMenu.classList.add("max-h-[300px]", "opacity-100");
+        } else {
+            mobileMenu.classList.add("max-h-0", "opacity-0");
+            mobileMenu.classList.remove("max-h-[300px]", "opacity-100");
+        }
+        event.stopPropagation(); // Zatrzymanie propagacji
+    });
+
+    // Zamknij menu, jeśli kliknięto poza nim
+    document.addEventListener("click", function(event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target) || hamburgerButton.contains(event.target);
+        if (!isClickInsideMenu) {
+            mobileMenu.classList.add("max-h-0", "opacity-0");
+            mobileMenu.classList.remove("max-h-[300px]", "opacity-100");
+        }
+    });
+
+    // Funkcja ukrywająca/pokazująca navbar przy przewijaniu
+    window.addEventListener("scroll", function() {
+        const currentScrollY = window.scrollY;
+
+        // Schowaj navbar, jeśli użytkownik przewija w dół, i pokaż, gdy przewija w górę
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            navbar.classList.add("-translate-y-full");
+        } else {
+            navbar.classList.remove("-translate-y-full");
+        }
+
+        // Zamknij menu mobilne przy przewijaniu w dół
+        if (currentScrollY > lastScrollY && !mobileMenu.classList.contains("max-h-0")) {
+            mobileMenu.classList.add("max-h-0", "opacity-0");
+            mobileMenu.classList.remove("max-h-[300px]", "opacity-100");
+        }
+
+        lastScrollY = currentScrollY;
+    });
+});
+
+
+    </script>
+</body>
+</html>
