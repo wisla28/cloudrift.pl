@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-const messageRoutes = require('./server/routes/api/messageRoutes'); // Import routera
 
 // Middleware
 app.use(cors());
@@ -20,7 +19,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', require('./server/routes/index'))
-app.use('/services', require('./server/routes/index'))
+app.use('/services', require('./server/routes/services/index'))
+
+const messageRoutes = require('./server/routes/api/messageRoutes'); // Import routera
 app.use('/api', messageRoutes);  // Dodaj /api prefix do ścieżki
 
 
