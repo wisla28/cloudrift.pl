@@ -24,4 +24,24 @@ router.get('/containers', async (req, res) => {
   }
 });
 
+router.get('/monitoring', async (req, res) => {
+  try {
+    res.render(pages_url + '/services/monitoring.ejs');
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/network', async (req, res) => {
+  try {
+    res.render(pages_url + '/services/network.ejs');
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 module.exports = router;
