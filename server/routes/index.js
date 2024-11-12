@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.get('/sitemap.xml', async (req, res) => {
   try {
-      const sitemap = new SitemapStream({ hostname: 'http://localhost:3000' });
+      const sitemap = new SitemapStream({ hostname: 'https://cloudrift.pl' });
 
       // Dodaj poszczególne strony do mapy witryny
       sitemap.write({ url: '/', changefreq: 'daily', priority: 1.0 });
