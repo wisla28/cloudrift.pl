@@ -23,6 +23,10 @@ router.get('/sitemap.xml', async (req, res) => {
       sitemap.write({ url: '/services/monitoring', changefreq: 'monthly', priority: 0.8 });
       sitemap.write({ url: '/services/network', changefreq: 'monthly', priority: 0.8 });
       sitemap.write({ url: '/services/cloud', changefreq: 'monthly', priority: 0.8 });
+      sitemap.write({ url: '/services/cctv', changefreq: 'monthly', priority: 0.8 });
+      sitemap.write({ url: '/services/fiber', changefreq: 'monthly', priority: 0.8 });
+      sitemap.write({ url: '/services/outsourcing', changefreq: 'monthly', priority: 0.8 });
+
 
       // Dodaj inne adresy URL w podobny sposób
 
