@@ -1,0 +1,87 @@
+<div class="align-middle justify-center flex w-full max-w-lg mx-auto max-h-24">
+    <!-- Przycisk Wstecz -->
+    <button id="prev" aria-label="Previous Slide" 
+        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full shadow-md">
+        &larr;
+    </button>
+
+    <!-- Obrazki w Karuzeli -->
+    <div class="overflow-hidden rounded-lg shadow-lg max-h-72">
+        <div id="carousel-images" class="flex transition-opacity duration-700 opacity-100">
+            <img src="/img/services/monitoring/1.jpg" class="w-full object-cover transition-opacity duration-700 opacity-0 hidden">
+            <img src="/img/services/monitoring/2.jpg" class="w-full object-cover transition-opacity duration-700 opacity-0 hidden">
+            <img src="/img/services/monitoring/3.jpg" class="w-full object-cover transition-opacity duration-700 opacity-0 hidden">
+            <!-- Dodaj więcej obrazów w razie potrzeby -->
+        </div>
+    </div>
+
+    <!-- Przycisk Dalej -->
+    <button id="next" aria-label="Next Slide"
+        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full shadow-md">
+        &rarr;
+    </button>
+
+    <!-- Punkty nawigacyjne -->
+    <div id="indicators" class="flex justify-center mt-4 space-x-2">
+        <button data-index="0" class="w-3 h-3 bg-gray-300 rounded-full hover:bg-gray-500"></button>
+        <button data-index="1" class="w-3 h-3 bg-gray-300 rounded-full hover:bg-gray-500"></button>
+        <button data-index="2" class="w-3 h-3 bg-gray-300 rounded-full hover:bg-gray-500"></button>
+    </div>
+</div>
+<script>
+    const images = document.querySelectorAll('#carousel-images img');
+    const indicators = document.querySelectorAll('#indicators button');
+    let currentIndex = 0;
+    let interval;
+
+    // Funkcja do aktualizacji widoczności obrazu
+    function updateCarousel(index) {
+        images.forEach((img, i) => {
+            img.classList.add('hidden', 'opacity-0'); // ukryj wszystkie obrazy
+            indicators[i].classList.remove('bg-gray-500'); // resetuj punkty
+            if (i === index) {
+                img.classList.remove('hidden');
+                setTimeout(() => img.classList.remove('opacity-0'), 10); // płynne fade-in
+                indicators[i].classList.add('bg-gray-500'); // podświetl aktywny punkt
+            }
+        });
+    }
+
+    // Przejście do następnego obrazu
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel(currentIndex);
+    }
+
+    // Przejście do poprzedniego obrazu
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel(currentIndex);
+    }
+
+    // Obsługa kliknięć w przycisk
+    document.getElementById('next').addEventListener('click', () => {
+        clearInterval(interval); // zatrzymaj automatyczne przewijanie
+        nextSlide();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        clearInterval(interval); // zatrzymaj automatyczne przewijanie
+        prevSlide();
+    });
+
+    // Obsługa kliknięć w punkty
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            clearInterval(interval);
+            currentIndex = index;
+            updateCarousel(currentIndex);
+        });
+    });
+
+    // Automatyczne przewijanie
+    interval = setInterval(nextSlide, 5000); // co 5 sekund
+
+    // Inicjalizacja pierwszego obrazu
+    updateCarousel(currentIndex);
+</script>
