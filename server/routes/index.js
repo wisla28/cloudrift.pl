@@ -28,8 +28,6 @@ router.get('/sitemap.xml', async (req, res) => {
       sitemap.write({ url: '/services/outsourcing', changefreq: 'monthly', priority: 0.8 });
 
 
-      // Dodaj inne adresy URL w podobny sposób
-
       sitemap.end();
 
       const sitemapXML = await streamToPromise(sitemap);
