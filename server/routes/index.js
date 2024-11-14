@@ -14,6 +14,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/regulamin', async (req, res) => {
+  try {
+    res.render(pages_url + '/regulamin.ejs');
+  }
+  catch (error) {
+  console.error(error);
+  res.status(500).send('Internal Server Error');
+  }
+});
+
 router.get('/sitemap.xml', async (req, res) => {
   try {
       const sitemap = new SitemapStream({ hostname: 'https://cloudrift.pl' });
