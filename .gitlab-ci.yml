@@ -17,8 +17,7 @@ stages:
  
 build:
   stage: build
-  # tags:
-  #   - home
+
   script:  
     - docker build -t dev-cloudrift .
     - docker tag dev-cloudrift:latest $IMAGE_TAG
@@ -29,9 +28,8 @@ build:
 deploy:
   stage: deploy
   image: alpine:latest
-    # Użyj runnera działącego na klast rze  
   tags:
-    - c1-okd-runner  
+    - okd 
   script:
     - apk add --no-cache kubectl
     # Tworzymy katalog, jeśli nie istnieje
