@@ -10,12 +10,9 @@ router.use((req, res, next) => {
   // Obiekt customowych nazw
   const customNames = {
       services: 'Usługi',
-      cctv: 'Monitoring CCTV',
+      cctv: 'Monitoring',
       cloud: 'Chmura',
-      outsourcing: 'Outsourcing IT',
-      network: 'Sieci LAN',
-      monitoring: 'Monitoring infrastruktury IT',
-      fiber: 'Technologia światłowodowa'
+      support: 'Wsparcie techniczne'
   };
 
   const breadcrumbs = [];
@@ -25,9 +22,17 @@ router.use((req, res, next) => {
   }
 
   path.forEach((segment, index) => {
-      const url = '/' + path.slice(0, index + 1).join('/');
-      // Sprawdzanie, czy istnieje customowa nazwa
-      const name = customNames[segment] || segment.charAt(0).toUpperCase() + segment.slice(1); // Wielka litera jako fallback
+      // Customowy URL dla `services`
+      let url;
+      if (segment === 'services') {
+          url = '/#services'; // Zmieniony URL
+      } else {
+          url = '/' + path.slice(0, index + 1).join('/');
+      }
+
+      // Customowa nazwa lub fallback
+      const name = customNames[segment] || segment.charAt(0).toUpperCase() + segment.slice(1);
+
       if (index === path.length - 1) {
           breadcrumbs.push({ name, url: null }); // Ostatni element
       } else {
@@ -36,8 +41,11 @@ router.use((req, res, next) => {
   });
 
   res.locals.breadcrumbs = breadcrumbs; // Udostępnienie breadcrumbs w widokach
+  // console.log(breadcrumbs);
   next();
 });
+
+
 
 
 
