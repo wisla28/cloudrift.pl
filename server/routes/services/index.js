@@ -3,6 +3,44 @@ const router = express.Router();
 const pages_url = require('../../settings');
 
 
+router.use((req, res, next) => {
+  const fullPath = req.baseUrl + req.path; // Pełna ścieżka
+  const path = fullPath.split('/').filter(Boolean); // Rozdzielenie ścieżki
+
+  // Obiekt customowych nazw
+  const customNames = {
+      services: 'Usługi',
+      cctv: 'Monitoring CCTV',
+      cloud: 'Chmura',
+      outsourcing: 'Outsourcing IT',
+      network: 'Sieci LAN',
+      monitoring: 'Monitoring infrastruktury IT',
+      fiber: 'Technologia światłowodowa'
+  };
+
+  const breadcrumbs = [];
+
+  if (path.length > 0) {
+      breadcrumbs.push({ name: 'Strona główna', url: '/' });
+  }
+
+  path.forEach((segment, index) => {
+      const url = '/' + path.slice(0, index + 1).join('/');
+      // Sprawdzanie, czy istnieje customowa nazwa
+      const name = customNames[segment] || segment.charAt(0).toUpperCase() + segment.slice(1); // Wielka litera jako fallback
+      if (index === path.length - 1) {
+          breadcrumbs.push({ name, url: null }); // Ostatni element
+      } else {
+          breadcrumbs.push({ name, url });
+      }
+  });
+
+  res.locals.breadcrumbs = breadcrumbs; // Udostępnienie breadcrumbs w widokach
+  next();
+});
+
+
+
 router.get('/cloud', async (req, res) => {
     try {
       res.render(pages_url + '/services/cloud.ejs');

@@ -19,6 +19,7 @@
     <link rel="preload" href="/dist/ownstyles.css" as="style">
     <link href="/dist/ownstyles.css" rel="stylesheet">
     <% // <script src="https://cdn.tailwindcss.com"></script> %>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <% // Swiper CSS %>
     <% // <link rel="preload" href="https://unpkg.com/swiper/swiper-bundle.min.css" as="style"> %>
@@ -31,7 +32,7 @@
     <% // Security %>
     <% // <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com;"> %>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gradient-to-b from-gray-50 to-white">
     <% // Navbar %>
     <nav id="navbar" class="fixed top-0 left-0 w-full bg-gray-800 text-white shadow-lg transition-transform duration-300 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,19 +54,22 @@
                 <% // Navigation menu %>
                 <div class="hidden md:flex flex-col md:flex-row md:space-x-4 md:items-center">
                     <ul class="flex flex-col md:flex-row md:space-x-4">
-                        <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/">Strona główna</a></li>
+                        <!-- <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/">Strona główna</a></li> -->
                         <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#contact">Kontakt</a></li>
                         <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#services">Usługi</a></li>
+                        <!-- <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/blog">Blog</a></li> -->
+
                     </ul>
                 </div>
             </div>
-    
+
             <% // Mobile Menu %>
             <div id="mobileMenu" class="absolute top-16 left-0 w-full bg-gray-800 text-white shadow-lg md:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out">
                 <ul class="flex flex-col space-y-2 p-4">
-                    <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/">Strona główna</a></li>
+                    <!-- <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/">Strona główna</a></li> -->
                     <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#contact">Kontakt</a></li>
                     <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/#services">Usługi</a></li>
+                    <!-- <li><a class="block text-white hover:text-blue-400 text-center py-2 px-4" href="/blog">Blog</a></li> -->
                 </ul>
             </div>
         </div>
@@ -125,5 +129,32 @@
 
 function _0x5602(_0x51817a,_0x262652){const _0x1d231e=_0x1d23();return _0x5602=function(_0x560207,_0x5781e4){_0x560207=_0x560207-0x1a9;let _0x229f7c=_0x1d231e[_0x560207];return _0x229f7c;},_0x5602(_0x51817a,_0x262652);}function _0x1d23(){const _0x47fa3f=['-translate-y-full','5769790FLIVOx','26212cVpRsN','mobileMenu','1586144sTIWqB','24252xGbXwl','getElementById','classList','16zmENpD','click','contains','add','opacity-100','scrollY','63iVJeUS','4467869VAuvGF','max-h-0','navbar','scroll','remove','18060185ORbMtN','548gEelJy','addEventListener','3260JfSaGG','target','opacity-0','max-h-[300px]','2118PIJpwk'];_0x1d23=function(){return _0x47fa3f;};return _0x1d23();}(function(_0x50aae7,_0x3e52fe){const _0x6492a2=_0x5602,_0x59bb21=_0x50aae7();while(!![]){try{const _0x41270d=-parseInt(_0x6492a2(0x1c2))/0x1*(parseInt(_0x6492a2(0x1ac))/0x2)+parseInt(_0x6492a2(0x1a9))/0x3*(parseInt(_0x6492a2(0x1b9))/0x4)+parseInt(_0x6492a2(0x1bb))/0x5*(parseInt(_0x6492a2(0x1bf))/0x6)+-parseInt(_0x6492a2(0x1b3))/0x7+-parseInt(_0x6492a2(0x1c4))/0x8*(-parseInt(_0x6492a2(0x1b2))/0x9)+parseInt(_0x6492a2(0x1c1))/0xa+-parseInt(_0x6492a2(0x1b8))/0xb;if(_0x41270d===_0x3e52fe)break;else _0x59bb21['push'](_0x59bb21['shift']());}catch(_0x224999){_0x59bb21['push'](_0x59bb21['shift']());}}}(_0x1d23,0xc66b1),document['addEventListener']('DOMContentLoaded',function(){const _0xd33d42=_0x5602,_0x6e7e32=document[_0xd33d42(0x1aa)]('hamburgerButton'),_0x3c3afa=document[_0xd33d42(0x1aa)](_0xd33d42(0x1c3)),_0x188f2b=document[_0xd33d42(0x1aa)](_0xd33d42(0x1b5));let _0x2fd4f1=window[_0xd33d42(0x1b1)];_0x6e7e32[_0xd33d42(0x1ba)](_0xd33d42(0x1ad),function(_0x3126fc){const _0x273649=_0xd33d42;_0x3c3afa[_0x273649(0x1ab)][_0x273649(0x1ae)]('max-h-0')?(_0x3c3afa['classList'][_0x273649(0x1b7)](_0x273649(0x1b4),'opacity-0'),_0x3c3afa[_0x273649(0x1ab)]['add'](_0x273649(0x1be),_0x273649(0x1b0))):(_0x3c3afa['classList'][_0x273649(0x1af)](_0x273649(0x1b4),'opacity-0'),_0x3c3afa[_0x273649(0x1ab)][_0x273649(0x1b7)](_0x273649(0x1be),_0x273649(0x1b0))),_0x3126fc['stopPropagation']();}),document[_0xd33d42(0x1ba)](_0xd33d42(0x1ad),function(_0x74118c){const _0x2ee510=_0xd33d42,_0x55bb88=_0x3c3afa[_0x2ee510(0x1ae)](_0x74118c[_0x2ee510(0x1bc)])||_0x6e7e32[_0x2ee510(0x1ae)](_0x74118c[_0x2ee510(0x1bc)]);!_0x55bb88&&(_0x3c3afa['classList'][_0x2ee510(0x1af)](_0x2ee510(0x1b4),_0x2ee510(0x1bd)),_0x3c3afa[_0x2ee510(0x1ab)][_0x2ee510(0x1b7)](_0x2ee510(0x1be),_0x2ee510(0x1b0)));}),window[_0xd33d42(0x1ba)](_0xd33d42(0x1b6),function(){const _0x372da9=_0xd33d42,_0x332c48=window['scrollY'];_0x332c48>_0x2fd4f1&&_0x332c48>0x32?_0x188f2b[_0x372da9(0x1ab)]['add'](_0x372da9(0x1c0)):_0x188f2b[_0x372da9(0x1ab)][_0x372da9(0x1b7)](_0x372da9(0x1c0)),_0x332c48>_0x2fd4f1&&!_0x3c3afa[_0x372da9(0x1ab)][_0x372da9(0x1ae)](_0x372da9(0x1b4))&&(_0x3c3afa[_0x372da9(0x1ab)]['add'](_0x372da9(0x1b4),_0x372da9(0x1bd)),_0x3c3afa[_0x372da9(0x1ab)][_0x372da9(0x1b7)](_0x372da9(0x1be),_0x372da9(0x1b0))),_0x2fd4f1=_0x332c48;});}));
     </script>
-</body>
-</html>
+
+
+<% if (breadcrumbs && breadcrumbs.length > 0) { %>
+    <div class="bg-gradient-to-br from-purple-500 to-cyan-500 pt-8">
+        <div class="pt-10 pb-2 max-w-7xl mx-auto text-center lg:text-left flex items-center justify-between">
+            <div class="text-base font-sans font-medium text-black" aria-label="Breadcrumb">
+                <ol class="list-reset flex space-x-2">
+                    <% breadcrumbs.forEach((crumb, index) => { %>
+                        <li>
+                            <% if (crumb.url) { %>
+                                <a href="<%= crumb.url %>" class="hover:text-white"><%= crumb.name %></a>
+                            <% } else { %>
+                                <span class="text-white"><%= crumb.name %></span>
+                            <% } %>
+                        </li>
+                        <% if (index < breadcrumbs.length - 1) { %>
+                            <li>
+                                <span>></span>
+                            </li>
+                        <% } %>
+                    <% }) %>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    
+</div>
+
