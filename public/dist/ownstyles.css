@@ -1,0 +1,12 @@
+/* Ukrycie kafelków poza ekranem */
+.tile {
+transform: translateX(-100vw); /* Na początku kafelki będą przesunięte poza ekran po lewej stronie */
+opacity: 0; /* Początkowo niewidoczne */
+transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Płynne przejście animacji */
+}
+
+/* Klasa aktywująca animację */
+.tile.active {
+transform: translateX(0); /* Kafelki wracają na swoje miejsce */
+opacity: 1; /* Stają się widoczne */
+}
