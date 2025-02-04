@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <meta name="description" content="Cloudrift oferuje nowoczesne rozwiązania chmurowe, modernizację infrastruktury IT i usługi DevOps dla firm w Polsce.">
+    <meta name="description" content="Cloudrift oferuje nowoczesne rozwiązania chmurowe, modernizację infrastruktury IT i usługi DevOps.">
     
     <% // Favicon %>
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
@@ -14,10 +14,11 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
     <% // Preload CSS %>
-    <link rel="preload" href="/dist/styles.css" as="style">
-    <link href="/dist/styles.css" rel="stylesheet">
+
     <link rel="preload" href="/dist/ownstyles.css" as="style">
     <link href="/dist/ownstyles.css" rel="stylesheet">
+    <!-- <link rel="preload" href="/dist/styles.css" as="style">
+    <link href="/dist/styles.css" rel="stylesheet"> -->
     <% // <script src="https://cdn.tailwindcss.com"></script> %>
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -133,7 +134,7 @@ function _0x5602(_0x51817a,_0x262652){const _0x1d231e=_0x1d23();return _0x5602=f
 
 <% if (breadcrumbs && breadcrumbs.length > 0) { %>
     <div class="bg-gradient-to-br from-purple-500 to-cyan-500 pt-8">
-        <div class="ps-6 md:ps-0 pt-10 pb-2 max-w-7xl mx-auto text-center lg:text-left flex items-center justify-between">
+        <div class="ps-24 lg:ps-6 pt-10 pb-2 max-w-7xl mx-auto text-center lg:text-left flex items-center justify-between">
             <div class="text-base font-sans font-medium text-black" aria-label="Breadcrumb">
                 <ol class="list-reset flex space-x-2">
                     <% breadcrumbs.forEach((crumb, index) => { %>

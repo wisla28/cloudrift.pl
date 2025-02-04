@@ -1,0 +1,182 @@
+<div class="flex min-h-screen">
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="w-64 bg-gray-100 p-6 shadow-lg fixed top-0 left-0 h-screen lg:h-auto lg:relative transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50">
+        <h2 class="text-xl font-bold text-gray-800 mb-4 md:pt-0">Kategorie</h2>
+        <ul>
+            <li class="mb-4">
+                <button class="w-full text-left text-gray-800 font-semibold hover:text-blue-500" onclick="filterPosts('all')">
+                    Wszystkie
+                </button>
+            </li>
+            <li class="mb-4">
+                <button class="w-full text-left text-gray-800 font-semibold hover:text-blue-500" onclick="filterPosts('tech')">
+                    Technologia
+                </button>
+                <ul class="ml-4 mt-2">
+                    <li>
+                        <button class="text-gray-600 hover:text-blue-500" onclick="filterPosts('ai')">
+                            Sztuczna Inteligencja
+                        </button>
+                    </li>
+                    <li>
+                        <button class="text-gray-600 hover:text-blue-500" onclick="filterPosts('webdev')">
+                            Web Development
+                        </button>
+                    </li>
+                </ul>
+            </li>
+            <li class="mb-4">
+                <button class="w-full text-left text-gray-800 font-semibold hover:text-blue-500" onclick="filterPosts('lifestyle')">
+                    Styl Życia
+                </button>
+                <ul class="ml-4 mt-2">
+                    <li>
+                        <button class="text-gray-600 hover:text-blue-500" onclick="filterPosts('travel')">
+                            Podróże
+                        </button>
+                    </li>
+                    <li>
+                        <button class="text-gray-600 hover:text-blue-500" onclick="filterPosts('health')">
+                            Zdrowie
+                        </button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Hamburger Button -->
+    <button id="hamburger" class="fixed top-20 left-4 z-50 bg-gray-800 text-white p-2 rounded-md focus:outline-none lg:hidden">
+        <!-- Hamburger Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+    <!-- Main Content -->
+    <main class="container mx-auto py-12 px-6 flex-1">
+        <!-- Featured Post -->
+        <div class="mb-12">
+            <div class="post bg-white shadow-lg rounded-lg overflow-hidden" data-category="tech ai">
+                <img src="https://via.placeholder.com/800x400" alt="Featured Post" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Wyróżniony Post: Inspiracje na każdy dzień</h2>
+                    <p class="text-gray-600 mb-6">Poznaj nasze najnowsze pomysły, które pomogą Ci lepiej wykorzystać swój czas i czerpać więcej radości z codzienności. Kliknij, aby przeczytać więcej!</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">Czytaj więcej →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Post 1 -->
+            <div class="post group relative bg-gray-800 shadow-lg rounded-lg overflow-hidden" data-category="tech ai">
+                <img src="https://via.placeholder.com/400x200" alt="Post 1" class="w-full h-48 object-cover">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+                    <h3 class="text-lg font-bold text-white">Tytuł Posta 1</h3>
+                    <p class="text-sm text-gray-300 mt-2 text-center px-4">Krótki opis pierwszego posta, który przyciągnie uwagę czytelnika.</p>
+                </div>
+                <!-- Title -->
+                <div class="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:opacity-0 transition-opacity duration-300">
+                    Tytuł Posta 1
+                </div>
+            </div>
+            
+            <!-- Post 2 -->
+            <div class="post group relative bg-gray-800 shadow-lg rounded-lg overflow-hidden" data-category="tech ai">
+                <img src="https://via.placeholder.com/400x200" alt="Post 2" class="w-full h-48 object-cover">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+                    <h3 class="text-lg font-bold text-white">Tytuł Posta 2</h3>
+                    <p class="text-sm text-gray-300 mt-2 text-center px-4">Krótki opis drugiego posta, zachęcający do kliknięcia.</p>
+                </div>
+                <!-- Title -->
+                <div class="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:opacity-0 transition-opacity duration-300">
+                    Tytuł Posta 2
+                </div>
+            </div>
+            
+            <!-- Post 3 -->
+            <div class="post group relative bg-gray-800 shadow-lg rounded-lg overflow-hidden" data-category="tech ai">
+                <img src="https://via.placeholder.com/400x200" alt="Post 3" class="w-full h-48 object-cover">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+                    <h3 class="text-lg font-bold text-white">Tytuł Posta 3</h3>
+                    <p class="text-sm text-gray-300 mt-2 text-center px-4">Krótki opis trzeciego posta z ciekawym przesłaniem.</p>
+                </div>
+                <!-- Title -->
+                <div class="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:opacity-0 transition-opacity duration-300">
+                    Tytuł Posta 3
+                </div>
+            </div>
+                        <!-- Post 1 -->
+            <div class="post group relative bg-gray-800 shadow-lg rounded-lg overflow-hidden" data-category="tech ai health lifestyle">
+                <img src="https://via.placeholder.com/400x200" alt="Post 1" class="w-full h-48 object-cover">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+                    <h3 class="text-lg font-bold text-white">Tytuł Posta 1</h3>
+                    <p class="text-sm text-gray-300 mt-2 text-center px-4">Krótki opis pierwszego posta, który przyciągnie uwagę czytelnika.</p>
+                </div>
+                <!-- Title -->
+                <div class="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:opacity-0 transition-opacity duration-300">
+                    Tytuł Posta 1
+                </div>
+            </div>
+            
+            <!-- Post 2 -->
+            <div class="post group relative bg-gray-800 shadow-lg rounded-lg overflow-hidden" data-category="tech ai lifestyle lifestyle">
+                <img src="https://via.placeholder.com/400x200" alt="Post 2" class="w-full h-48 object-cover">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+                    <h3 class="text-lg font-bold text-white">Tytuł Posta 2</h3>
+                    <p class="text-sm text-gray-300 mt-2 text-center px-4">Krótki opis drugiego posta, zachęcający do kliknięcia.</p>
+                </div>
+                <!-- Title -->
+                <div class="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:opacity-0 transition-opacity duration-300">
+                    Tytuł Posta 2
+                </div>
+            </div>
+            
+            <!-- Post 3 -->
+            <div class="post group relative bg-gray-800 shadow-lg rounded-lg overflow-hidden" data-category="tech ai travel">
+                <img src="https://via.placeholder.com/400x200" alt="Post 3" class="w-full h-48 object-cover">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+                    <h3 class="text-lg font-bold text-white">Tytuł Posta 3</h3>
+                    <p class="text-sm text-gray-300 mt-2 text-center px-4">Krótki opis trzeciego posta z ciekawym przesłaniem.</p>
+                </div>
+                <!-- Title -->
+                <div class="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:opacity-0 transition-opacity duration-300">
+                    Tytuł Posta 3
+                </div>
+            </div>
+        </div>
+        
+    </main>
+</div>
+<script>
+    function filterPosts(category) {
+        const posts = document.querySelectorAll('.post'); // Pobiera wszystkie kafelki
+
+        posts.forEach(post => {
+            const categories = post.getAttribute('data-category').split(' '); // Pobiera kategorie kafelka
+            if (category === 'all' || categories.includes(category)) {
+                post.style.display = 'block'; // Pokazuje kafelek
+            } else {
+                post.style.display = 'none'; // Ukrywa kafelek
+            }
+        });
+    }
+
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.getElementById('hamburger');
+
+    hamburger.addEventListener('click', () => {
+        const isHidden = sidebar.classList.contains('-translate-x-full');
+        if (isHidden) {
+            sidebar.classList.remove('-translate-x-full');
+        } else {
+            sidebar.classList.add('-translate-x-full');
+        }
+    });
+</script>
